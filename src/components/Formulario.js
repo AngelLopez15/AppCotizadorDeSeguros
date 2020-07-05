@@ -36,6 +36,15 @@ const Boton=styled.button`
     }
 `
 
+const Error=styled.div`
+    background:red;
+    color:#ffffff;
+    padding:1rem;
+    width:100%;
+    text-align:center;
+    margin-bottom:2rem;
+`
+
 export const Formulario = () => {
     
     const [datos, setDatos] = useState({
@@ -44,6 +53,7 @@ export const Formulario = () => {
         plan:''
     })
 
+    const [error, setError] = useState(false)
     // extraer los valores del state    
     const {marca,year,plan}=datos
 
@@ -51,9 +61,38 @@ export const Formulario = () => {
     const obtenerDatos=e=>{
         setDatos({...datos,[e.target.name]:e.target.value})
     }
+    // Funcion para cuando el usuario presiona submit
+    const cotizarSeguro=e=>{
+        // Casi siempre vamos a tener que quitar el evento default de los formularios
+        e.preventDefault()
+        if (marca.trim()==='' || year.trim()==='' || plan.trim()==='') {
+            setError(true)
+            return
+        }
+        // obtener la diferencia de años
+
+        // por cada año  hay que restar  el 3%
+
+        // Europeo +30% 
+
+        // Americano +15%
+
+        // Asiatico +5%
+
+        // Basico +20%
+        
+        // completo +50%
+
+        // total
+
+
+    }
 
     return (
-        <form>
+        <form
+            onSubmit={cotizarSeguro}
+        >
+            {error ? <Error>Todos los campos son obligatorios</Error> : null}
             <Campo>
                 <Label>Marca</Label>
                 <Select
@@ -104,7 +143,7 @@ export const Formulario = () => {
                     onChange={obtenerDatos}
                 />Completo
             </Campo>
-            <Boton type="button">
+            <Boton type="submit">
                 Cotizar
             </Boton>
         </form>
