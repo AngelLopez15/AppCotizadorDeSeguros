@@ -19,6 +19,23 @@ const Select = styled.select`
 const InputRadio=styled.input`
     margin: 0 1rem;
 `
+const Boton=styled.button`
+    background: #00838F;
+    border:none;
+    color:#ffffff;
+    font-size:16px;
+    font-weight:bold;
+    margin-top:2rem;
+    text-transform:uppercase;
+    transition: background .3s ease;
+    padding:1rem;
+    width:100%;
+    &:hover{
+        background:#26c6d6;
+        cursor:pointer;
+    }
+`
+
 export const Formulario = () => {
     return (
         <form>
@@ -60,9 +77,9 @@ export const Formulario = () => {
                     value="completo"
                 />Completo
             </Campo>
-            <button type="button">
+            <Boton type="button">
                 Cotizar
-            </button>
+            </Boton>
         </form>
     )
 }
