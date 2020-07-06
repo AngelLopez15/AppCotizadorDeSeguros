@@ -47,7 +47,7 @@ const Error=styled.div`
     margin-bottom:2rem;
 `
 
-export const Formulario = () => {
+export const Formulario = ({setResumen}) => {
     
     const [datos, setDatos] = useState({
         marca:'',
@@ -89,7 +89,10 @@ export const Formulario = () => {
     resultado = parseFloat(incrementoPlan * resultado).toFixed(2)
 
     // total
-
+    setResumen({
+        cotizacion:resultado,
+        datos
+    })
 
     }
 
