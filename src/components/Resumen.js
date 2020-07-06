@@ -1,5 +1,6 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
+import PropTypes from 'prop-types'
 import {primerLetraMayuscula} from '../helper'
 
 const ContenedorResumen = styled.div`
@@ -13,7 +14,7 @@ const ContenedorResumen = styled.div`
 
 export const Resumen = ({datos}) => {
     // extraer datos
-    const {marca, year, plan}=datos
+    const {marca, year, plan} = datos
 
     if (marca==='' || year === '' || plan === '') return null   
 
@@ -27,4 +28,8 @@ export const Resumen = ({datos}) => {
             </ul>
         </ContenedorResumen>
     )
+}
+
+Resumen.propTypes={
+    datos:PropTypes.object.isRequired
 }
